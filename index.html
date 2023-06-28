@@ -8,35 +8,37 @@
   <body>
 
     <header class="page-header">
-        <nav class="navigation">
-          <a class="logo-link">
-            <img class="logo-image" src="#" alt="Логотип седона">
-          </a>
-          <ul class="navigation-list">
-            <li class="navigation-item">
-              <a class="navigation-link navigation-link-current">Главная</a>
-            </li>
-            <li class="navigation-item">
-              <a class="navigation-link">О седоне</a>
-            </li>
-            <li class="navigation-item">
-              <a class="navigation-link">Гостиницы</a>
-            </li>
-          </ul>
-          <ul class="navigation-list user-navigation">
-            <li class="navigation-item">
-              <a class="navigation-link">
-                <span class="visually-hidden">Поиск</span>
-              </a>
-            </li>
-            <li class="navigation-item">
-              <a class="navigation-link">
-                <span class="visually-hidden">Избранное</span>
-              </a>
-            </li>
-          </ul>
-          <a class="button button-header" href="#">Хочу сюда!</a>
-        </nav>
+      <!-- вынесено из навигации т.к. там есть дубль страницы (Главная) -->
+      <a class="header-logo-link">
+        <img class="header-logo-image" src="index.html" alt="Логотип Cедона">
+      </a>
+      <nav class="navigation">
+        <ul class="navigation-list">
+          <li class="navigation-item">
+            <a class="navigation-link navigation-link-current">Главная</a>
+          </li>
+          <li class="navigation-item">
+            <a class="navigation-link">О седоне</a>
+          </li>
+          <li class="navigation-item">
+            <a class="navigation-link">Гостиницы</a>
+          </li>
+        </ul>
+        <ul class="navigation-list navigation-user">
+          <li class="navigation-item">
+            <a class="navigation-link" href="#">
+              <span class="visually-hidden">Поиск</span>
+            </a>
+          </li>
+          <li class="navigation-item">
+            <a class="navigation-link" href="#">
+              <span class="visually-hidden">Избранное</span>
+              <span class="favorite-counter">12</span>
+            </a>
+          </li>
+        </ul>
+        <a class="button button-header" href="#">Хочу сюда!</a>
+      </nav>
     </header>
 
     <main class="main">
@@ -83,7 +85,7 @@
         <ul class="promo-list">
           <li class="promo-item promo-item-housing">
             <h3 class="promo-title">Жильё</h3>
-            <p class="promo-description">Рекомендуем пожить в настоящем мотеле, всё как в кино!</p>
+            <p class="promo-description">Рекомендуем пожитьв настоящем мотеле, всё как в кино!</p>
           </li>
           <li class="promo-item promo-item-food">
             <h3 class="promo-title">Жильё</h3>
@@ -99,8 +101,8 @@
       <!-- search -->
       <section class="search">
         <h2 class="visually-hidden">Поиск гостиницы</h2>
-        <p class="seach-caption">Заинтересовались?</p>
-        <p class="seach-text">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
+        <p class="search-caption">Заинтересовались?</p>
+        <p class="search-text">Укажите предполагаемые даты поездки,и мы покажем вам лучшие предложения гостиниц в Седоне</p>
         <a class="button" href="#">Поиск гостиницы в Cедоне</a>
       </section>
     </main>
@@ -109,11 +111,13 @@
 
       <section class="subscribe">
         <h2 class="subscribe-title">Подпишитесь на рассылку</h2>
-        <form action="https://echo.htmlacademy.ru" method="post">
+        <form class="subscribe-form" action="https://echo.htmlacademy.ru" method="post">
           <p class="text">Только полезная информация и никакого спама, честное бойскаутское!</p>
-          <p class="search-field">
-            <label for="email"><span class="visually-hidden">email</span></label>
-            <input class="seatch-input" name="email" id="email" type="email">
+          <p class="form-subscribe-field">
+            <label class="form-subscribe-label" for="email">
+              <span class="visually-hidden">email</span>
+              <input class="form-subscripe-input" name="email" id="email" type="email">
+            </label>
             <button class="button button-subscribe" type="submit">Подписаться</button>
           </p>
         </form>

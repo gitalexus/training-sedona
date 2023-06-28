@@ -8,35 +8,37 @@
   <body>
 
     <header class="page-header">
-        <nav class="navigation">
-          <a class="logo-link">
-            <img class="logo-image" src="#" alt="Логотип седона">
-          </a>
-          <ul class="navigation-list">
-            <li class="navigation-item">
-              <a class="navigation-link navigation-link-current">Главная</a>
-            </li>
-            <li class="navigation-item">
-              <a class="navigation-link">О седоне</a>
-            </li>
-            <li class="navigation-item">
-              <a class="navigation-link navigation-link-current">Гостиницы</a>
-            </li>
-          </ul>
-          <ul class="navigation-list user-navigation">
-            <li class="navigation-item">
-              <a class="navigation-link">
-                <span class="visually-hidden">Поиск</span>
-              </a>
-            </li>
-            <li class="navigation-item">
-              <a class="navigation-link">
-                <span class="visually-hidden">Избранное</span>
-              </a>
-            </li>
-          </ul>
-          <a class="button button-header" href="#">Хочу сюда!</a>
-        </nav>
+      <!-- вынесено из навигации т.к. там есть дубль страницы (Главная) -->
+      <a class="header-logo-link">
+        <img class="header-logo-image" src="index.html" alt="Логотип Cедона">
+      </a>
+      <nav class="navigation">
+        <ul class="navigation-list">
+          <li class="navigation-item">
+            <a class="navigation-link">Главная</a>
+          </li>
+          <li class="navigation-item">
+            <a class="navigation-link">О седоне</a>
+          </li>
+          <li class="navigation-item">
+            <a class="navigation-link navigation-link-current">Гостиницы</a>
+          </li>
+        </ul>
+        <ul class="navigation-list navigation-user">
+          <li class="navigation-item">
+            <a class="navigation-link" href="#">
+              <span class="visually-hidden">Поиск</span>
+            </a>
+          </li>
+          <li class="navigation-item">
+            <a class="navigation-link" href="#">
+              <span class="visually-hidden">Избранное</span>
+              <span class="favorite-counter">12</span>
+            </a>
+          </li>
+        </ul>
+        <a class="button button-header" href="#">Хочу сюда!</a>
+      </nav>
     </header>
 
     <main class="main">
@@ -59,35 +61,51 @@
             <!-- инфраструктура -->
             <fieldset class="form-group">
               <legend class="form-group-title">Инфраструктура:</legend>
-              <label class="form-control-caption">
-                <input name="infrastructure-pool" id="infrastructure-pool" type="checkbox" checked>
-                Бассейн
-              </label>
-              <label class="form-control-caption">
-                <input name="infrastructure-parking" id="infrastructure-parking" type="checkbox" checked>
-                Парковка
-              </label>
-              <label class="form-control-caption">
-                <input name="infrastructure-wifi" id="infrastructure-wifi" type="checkbox">
-                Wi-Fi
-              </label>
+              <ul class="filter-list">
+                <li class="filter-item">
+                  <label class="form-control-caption">
+                    <input name="infrastructure-pool" id="infrastructure-pool" type="checkbox" checked>
+                    Бассейн
+                  </label>
+                </li>
+                <li class="filter-item">
+                  <label class="form-control-caption">
+                    <input name="infrastructure-parking" id="infrastructure-parking" type="checkbox" checked>
+                    Парковка
+                  </label>
+                </li>
+                <li class="filter-item">
+                  <label class="form-control-caption">
+                    <input name="infrastructure-wifi" id="infrastructure-wifi" type="checkbox">
+                    Wi-Fi
+                  </label>
+                </li>
+              </ul>
             </fieldset>
 
             <!-- Тип жилья: -->
             <fieldset class="form-group">
               <legend class="form-group-title">Тип жилья:</legend>
-              <label class="form-control-caption">
-                <input name="type-hotel" id="type-hotel" type="radio" checked>
-                Гостиница
-              </label>
-              <label class="form-control-caption">
-                <input name="type-inn" id="type-inn" type="radio">
-                Мотель
-              </label>
-              <label class="form-control-caption">
-                <input name="type-appartments" id="type-appartments" type="radio">
-                Апартаменты
-              </label>
+              <ul class="filter-list">
+                <li class="filter-item">
+                  <label class="form-control-caption">
+                    <input name="type-hotel" id="type-hotel" type="radio" checked>
+                    Гостиница
+                  </label>
+                </li>
+                <li class="filter-item">
+                  <label class="form-control-caption">
+                    <input name="type-inn" id="type-inn" type="radio">
+                    Мотель
+                  </label>
+                </li>
+                <li class="filter-item">
+                  <label class="form-control-caption">
+                    <input name="type-appartments" id="type-appartments" type="radio">
+                    Апартаменты
+                  </label>
+                </li>
+              </ul>
             </fieldset>
 
             <!-- TODO price range -->
@@ -102,7 +120,7 @@
 
       <section class="main-content">
         <header class="content-header">
-          <h2 class="content-title">Найдено гостиниц: 38</h2>
+          <h2 class="content-title">Найдено гостиниц: <span class="count-hotels">38<span></h2>
 
           <!-- сортировка -->
           <select class="select-control" aria-label="сортировка">
@@ -132,7 +150,7 @@
 
         </header>
 
-        <ul class="products-list">
+        <ul class="product-list">
           <li class="card">
             <a class="card-link" href="#">
               <img class="card-image" src="#" alt="">
@@ -143,11 +161,13 @@
               <b class="card-price">От 4000 ₽</b>
             </p>
             <a class="button button-details" href="#">подробнее</a>
-            <button class="button button-favorite">в избранное</button>
-            <p class="card-rating">
-              <span class="card-rating-stars"></span>
-              <span class="card-rating-text">Рейтинг: 8,5</span>
-            </p>
+            <a class="button button-favorite">в избранное</a>
+            <div class="card-rating">
+              <p class="card-rating-stars">
+                <span class="visually-hidden">4 звезды</span>
+              </p>
+              <p class="card-rating-text">Рейтинг: 8,5</p>
+            </div>
           </li>
 
           <li class="card">
@@ -160,11 +180,13 @@
               <b class="card-price">От 5000 ₽</b>
             </p>
             <a class="button button-details" href="#">подробнее</a>
-            <button class="button button-favorite">в избранное</button>
-            <p class="card-rating">
-              <span class="card-rating-stars"></span>
-              <span class="card-rating-text">Рейтинг: 9,2</span>
-            </p>
+            <a class="button button-favorite">в избранное</a>
+            <div class="card-rating">
+              <p class="card-rating-stars">
+                <span class="visually-hidden">4 звезды</span>
+              </p>
+              <p class="card-rating-text">Рейтинг: 9,2</p>
+            </div>
           </li>
 
           <li class="card">
@@ -177,11 +199,13 @@
               <b class="card-price">От 2500 ₽</b>
             </p>
             <a class="button button-details" href="#">подробнее</a>
-            <button class="button button-favorite">в избранное</button>
-            <p class="card-rating">
-              <span class="card-rating-stars"></span>
-              <span class="card-rating-text">Рейтинг: 6,9</span>
-            </p>
+            <a class="button button-favorite">в избранное</a>
+            <div class="card-rating">
+              <p class="card-rating-stars">
+                <span class="visually-hidden">3 звезды</span>
+              </p>
+              <p class="card-rating-text">Рейтинг: 6,9</p>
+            </div>
           </li>
 
           <li class="card">
@@ -194,11 +218,13 @@
               <b class="card-price">От 1500 ₽</b>
             </p>
             <a class="button button-details" href="#">подробнее</a>
-            <button class="button button-favorite">в избранное</button>
-            <p class="card-rating">
-              <span class="card-rating-stars"></span>
-              <span class="card-rating-text">Рейтинг: 5,0</span>
-            </p>
+            <a class="button button-favorite">в избранное</a>
+            <div class="card-rating">
+              <p class="card-rating-stars">
+                <span class="visually-hidden">2 звезды</span>
+              </p>
+              <p class="card-rating-text">Рейтинг: 5,0</p>
+            </div>
           </li>
         </ul>
 
@@ -222,25 +248,21 @@
             <a class="pagination-link" href="#">10</a>
           </li>
         </ol>
-
-
       </section>
-
-
-
-
 
     </main>
 
-    <footer class="page-footer-inner">
+    <footer class="page-footer">
 
       <section class="subscribe">
         <h2 class="subscribe-title">Подпишитесь на рассылку</h2>
-        <form action="https://echo.htmlacademy.ru" method="post">
+        <form class="subscribe-form" action="https://echo.htmlacademy.ru" method="post">
           <p class="text">Только полезная информация и никакого спама, честное бойскаутское!</p>
-          <p class="search-field">
-            <label for="email"><span class="visually-hidden">email</span></label>
-            <input class="seatch-input" name="email" id="email" type="email">
+          <p class="form-subscribe-field">
+            <label class="form-subscribe-label" for="email">
+              <span class="visually-hidden">email</span>
+              <input class="form-subscripe-input" name="email" id="email" type="email">
+            </label>
             <button class="button button-subscribe" type="submit">Подписаться</button>
           </p>
         </form>
